@@ -392,6 +392,10 @@ export class Parser {
 				this.setCommentFormat("<!---", "<!---", "--->");
 				break;
 
+			case "tlaplus":
+				this.delimiter = this.escapeRegExp("\\*");
+				break;
+
 			case "plaintext":
 				this.isPlainText = true;
 
