@@ -9,7 +9,7 @@ With this extension, you will be able to categorise your annotations into:
 * Commented out code can also be styled to make it clear the code shouldn't be there
 * Any other comment styles you'd like can be specified in the settings
 
-![Annotated code](images/better-comments.PNG)
+<img src="https://raw.githubusercontent.com/alygin/better-comments/master/images/better-comments.PNG" width="459" height="auto">
 
 ## Configuration
 
