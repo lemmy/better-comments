@@ -1,3 +1,9 @@
+# Warning
+
+This repository is a fork of [the original Better Comments](https://github.com/aaron-bond/better-comments). It adds support for TLA+ and fixes some minor issues.
+
+Builds of the extension from this repository are not published on VS Code Marketplace. But you can grab them from the [Releases page](https://github.com/alygin/better-comments/releases) and [install .vsix files manually](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix).
+
 # Better Comments
 
 The Better Comments extension will help you create more human-friendly comments in your code.  
