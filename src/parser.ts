@@ -188,7 +188,8 @@ export class Parser {
 
 		// Combine custom delimiters and the rest of the comment block matcher
 		let commentMatchString = "(^)+([ \\t]*\\*[ \\t]*)("; // Highlight after leading *
-		let regEx = /(^|[ \t])(\/\*\*)+([\s\S]*?)(\*\/)/gm; // Find rows of comments matching pattern /** */
+		let blockMatchString = `(^|[ \\t])(${this.blockCommentStart}\\*)+([\\s\\S]*?)${this.blockCommentEnd}`;
+		let regEx = new RegExp(blockMatchString, "gm"); // Find rows of comments matching pattern /** */
 
 		commentMatchString += characters.join("|");
 		commentMatchString += ")([ ]*|[:])+([^*/][^\\r\\n]*)";
@@ -393,7 +394,9 @@ export class Parser {
 				break;
 
 			case "tlaplus":
-				this.delimiter = this.escapeRegExp("\\*");
+			case "tlaplus_cfg":
+				this.setCommentFormat("\\*", "(*", "*)");
+				this.highlightJSDoc = true;
 				break;
 
 			case "plaintext":
@@ -436,7 +439,7 @@ export class Parser {
 	 * @returns {string} The escaped string
 	 */
 	private escapeRegExp(input: string): string {
-		return input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+		return input.replace(/[.*+?^${}()/|[\]\\]/g, '\\$&'); // $& means the whole matched string
 	}
 
 	/**
